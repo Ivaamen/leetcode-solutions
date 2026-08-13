@@ -1,0 +1,12 @@
+data structure used: hashtable
+    explanation: to find the correct combination, we need to be able to check if a variable and its complement sum to a target. This is because it only takes O[1] time to tell if a particular value is inside of a hash table.
+
+Pseudocode (starting after the function definition):
+for each value inside of nums:
+    find the complement (target - value)
+    if complement inside hashtable:
+        return indices of value and complement
+    else:
+        add current value to the hashtable
+return nothing [included as an edge case]     
+
