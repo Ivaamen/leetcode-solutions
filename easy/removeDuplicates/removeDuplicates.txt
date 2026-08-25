@@ -1,0 +1,12 @@
+algorithm: two pointers
+explanation: To understand that we must use two pointers, we have to first understand what the problem is asking for. It is important to understand that we don't actually have to modify the array all that much: the algorithm that checks our test cases will only look at the list up until length k. Second of all, we do not have to actually return the total list back as a result. It is important to understand this to see why it is less efficient to use something like a hashmap: using a hashmap will get you through the list and tell you which are duplicates in O(n) time, but it answers a much more general question relative to the correct solution, while we can still make it more efficient 
+(O(1) time). To be more clear, using a hashmap answers the wrong question; instead of asking "have I seen this value before", we only really need to answer the question "is this value the same one as the one behind it". This should clue you into thinking of two pointers, specifically the slow pointer fast pointer technique. Conceptually, we will increment the slow pointer on every unique value, while continually incrementing the fast pointer, all the while comparing the fast pointer to the slow pointer. After j (fast) reaches a new unique value, we will then increment i (slow pointer), then overwrite the new nums[i] with the unique value we just found in our comparison with nums[j].  
+Psuedocode:
+initialize i,j pointers;
+while i and j pointers less than the list length:
+	are the values of num at i and j different?:
+		then increment i,
+		and set i's value equal to the unique value of j.
+	increment j;
+
+
