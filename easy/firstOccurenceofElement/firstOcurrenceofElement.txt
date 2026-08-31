@@ -1,0 +1,24 @@
+To understand this problem, first consider the solution of brute force. It would involve a two pointers (fast/slow), where the 
+first pointer represents the start of the needle substring that we are looking for, and the second pointer would iterate until it reaches 
+the length of the needle substring. 
+
+Concretely, we find this by seeing that i should iterate only over the length (haystack-needle). This is because    
+
+The brute force solution is almost perfect--it just has one problem. It chooses to iterate over the substring even if the first character doesn't match,
+which is a waste. To avoid this, we just add a simple check, checking if index j of both the needle substring and the haystack string are 
+equivalent to each other, and if so, we break the loop. This allows our loop to end early if the character check fails at any previous moment.
+
+Psuedocode:
+initialize lengths of haystack and needle;
+initialize i, iterate i over the length of haystack-needle:
+    initialize j, iterate j over the length of needle:   
+        // it must be haystack[i+j] because haystack[j] wouldn't be aligned properly relative to the sliding window.
+        check if needle[j] unequal to haystack[j+i]:
+            break the loop if it is
+        if on the final iteration
+        // this only executes if it reaches the final iteration, and the characters are equivalent between the needle and haystack substring
+        return i; 
+// this executes when all else fails, and there are no substrings that are equal to the needle one.
+return -1 
+
+        
