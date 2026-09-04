@@ -1,2 +1,0 @@
-There are two parts to solving this problem: first is actually extracting the correct digits and 
-solving the problem, while the second one is solving the problem 
